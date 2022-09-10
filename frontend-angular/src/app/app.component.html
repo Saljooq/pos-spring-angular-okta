@@ -10,6 +10,7 @@
     <a class="item" *ngIf="!(authService.authState$ | async)?.isAuthenticated" (click)="login()">Login</a>
     <a id="messages-button" class="item" *ngIf="(authService.authState$ | async)?.isAuthenticated" routerLink="/messages"><i aria-hidden="true" class="mail outline icon"></i>Messages</a>
     <a id="profile-button" class="item" *ngIf="(authService.authState$ | async)?.isAuthenticated" routerLink="/profile">Profile</a>
+    <a id="drag-drop-button" class="item" *ngIf="(authService.authState$ | async)?.isAuthenticated" routerLink="/drag-drop">Drag-n-Drop</a>
     <a id="logout-button" class="item" *ngIf="(authService.authState$ | async)?.isAuthenticated" (click)="logout()">Logout</a>
   </div>
 </div>

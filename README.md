@@ -52,3 +52,12 @@ chmod +x run_silently.sh
 
 ./run_silently.sh
 ```
+
+
+# Random stuff
+
+## `ng generate component <component-name>` not working
+Try:
+```bash
+ng add @angular-eslint/schematics@latest
+```

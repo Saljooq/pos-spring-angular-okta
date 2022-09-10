@@ -1,0 +1,27 @@
+
+  <div *ngFor="let container of ContainerList">
+    <div class="example-container">
+      <h1 class="container-heading">{{container.id}}</h1>
+      <div
+        cdkDropList
+        id="{{container.id}}"
+        cdkDropListOrientation="horizontal"
+        #{{container}}="cdkDropList"
+        [cdkDropListData]="container.list"
+        [cdkDropListConnectedTo]="containerListIds"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of container.list" cdkDrag (click)="updateTest(item)">
+          <h3>{{item}}</h3>
+          <p>Details of this todo note would be very helpful</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button pButton label="Add new semester" (click)="addContainer()" class="sticky-example">+ ADD SEMESTER</button>
+  <br>
+  <h1>Here's what you clicked last</h1>
+  <div >{{test}}</div>
+  
+  

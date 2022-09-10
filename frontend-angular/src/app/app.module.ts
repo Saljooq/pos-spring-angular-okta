@@ -14,6 +14,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import {
   OKTA_CONFIG,
   OktaAuthGuard,
@@ -27,6 +28,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import oktaConfig from './app.config';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 const oktaAuth = new OktaAuth(oktaConfig.oidc);
 
@@ -49,6 +51,11 @@ const appRoutes: Routes = [
     component: MessagesComponent,
     canActivate: [ OktaAuthGuard ]
   },
+  {
+    path: 'drag-drop',
+    component: DragDropComponent,
+    canActivate: [ OktaAuthGuard ]
+  },
 ];
 
 @NgModule({
@@ -56,13 +63,15 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    MessagesComponent
+    MessagesComponent,
+    DragDropComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    OktaAuthModule
+    OktaAuthModule,
+    DragDropModule
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: { oktaAuth } },
