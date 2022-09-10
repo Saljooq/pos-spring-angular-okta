@@ -1,12 +1,14 @@
 # POS-SPRING-ANGULAR-OKTA
+
 This is just a base project to see if everything comes together and can be run locally
 
-
 # Versions tests with
+
 - JAVA - 11
 - Maven - 3.6.3
 
 # Installing ng for running Angular and running frontend code
+
 ```bash
 npm install -g @angular/cli
 cd frontend-angular
@@ -14,8 +16,14 @@ npm i
 ng serve
 ```
 
+In windows `ng serve` may not be allowed because of RESTRICTED execution policy - try changing it with this
+
+```bash
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
 # Commnads needed to compile a JAR / run it
+
 ```bash
 cd spring-boot
 mvn clean install
