@@ -1,4 +1,5 @@
-package com.example.sample;
+package pos.backend.archive;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +9,6 @@ import org.springframework.security.config.annotation.web.configurers.oauth2.ser
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.AbstractOAuth2Token;
 import org.springframework.security.oauth2.server.resource.authentication.AbstractOAuth2TokenAuthenticationToken;
-// import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthentication;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class HelloController {
+public class OldSample {
 
     @GetMapping("/hello")
     public String hello(Principal principal, OAuth2AuthenticationToken authentication) {
@@ -70,38 +70,5 @@ class Message {
 
     Message(String text) {
         this.text = text;
-    }
-}
-@Configuration
-class SecurityConfiguration {
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
-
-        // // enables OAuth redirect login
-        // http.oauth2Login();
-    
-        // // enables OAuth Client configuration
-        // http.oauth2Client();
-    
-        // enables REST API support for JWT bearer tokens
-        http.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-
-        http.cors();
-    
-        return http.build();
-    }
-
-}
-
-
-@Configuration
-class WebConfig implements WebMvcConfigurer {
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**");
     }
 }
